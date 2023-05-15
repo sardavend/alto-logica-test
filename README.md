@@ -1,10 +1,10 @@
-#Sales Receipt Generator
+# Sales Receipt Generator
 
-This is the solution for the receipt sales generator Altologica assigment
+This is the solution for the receipt sales generator Altologica assignment
 
 ## Solution Approach
 
-The solution is implemented in Ruby, and the input is fed into the solution using standard input. The program reads each line of input, parses the information for each item, and calculates the tax and final price for each item. The total cost and total sales tax are also calculated and displayed in the receipt.
+The solution is implemented in Ruby, and the input is fed into the solution using standard input. The program reads each line of input, parses the information for each item, and calculates the tax and final price for each item. The total cost and total sales tax are also calculated and displayed on the receipt.
 
 
 ## Usage
@@ -16,12 +16,18 @@ ruby main.rb
 
 The program will prompt you to enter the item list in the following format:
 
+```
 [quantity] [product name] at [price]
+```
 
 when you are done with the item list in a new line write `summary` to generate the receipt
 
 
 ## Testing
 
-The program include a base test cases. to run the test
+The program includes base test cases. to run the test write in your terminal:
+
+```
+ruby tests/test_order.rb
+``
 
