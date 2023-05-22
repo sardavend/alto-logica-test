@@ -1,11 +1,13 @@
+require 'bigdecimal'
 require_relative 'order_line'
 require_relative 'product'
+require_relative 'tax'
 
 module OrderWrapper
   def parse_order_line(input_match)
     quantity =  input_match[1].to_i
     product_name = input_match[2]
-    unit_price = input_match[3].to_f
+    unit_price = BigDecimal(input_match[3])
 
     product = Product.new(
       name: product_name,
@@ -14,7 +16,8 @@ module OrderWrapper
 
     OrderLine.new(
       quantity: quantity,
-      product: product
+      product: product,
+      tax: Tax.new(product: product)
     )
   end
 
