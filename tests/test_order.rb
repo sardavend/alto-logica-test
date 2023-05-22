@@ -1,6 +1,7 @@
 require_relative '../order'
 require_relative '../order_line'
 require_relative '../product'
+require_relative '../tax'
 require 'test/unit'
 
 class TestOrder < Test::Unit::TestCase
@@ -10,9 +11,9 @@ class TestOrder < Test::Unit::TestCase
     @product3 = Product.new(name: 'chocolate bar', price: 0.85)
 
     @order_lines = [
-      OrderLine.new(product: @product1, quantity: 2),
-      OrderLine.new(product: @product2, quantity: 1),
-      OrderLine.new(product: @product3, quantity: 1)
+      OrderLine.new(product: @product1, quantity: 2, tax: Tax.new(product: @product1)),
+      OrderLine.new(product: @product2, quantity: 1, tax: Tax.new(product: @product2)),
+      OrderLine.new(product: @product3, quantity: 1, tax: Tax.new(product: @product3))
     ]
 
     @order = Order.new(order_lines: @order_lines)
