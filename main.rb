@@ -1,7 +1,7 @@
 require_relative 'order_wrapper'
 require_relative 'order'
 
-puts "Enter a list of products with their respective cost. Type `summary` if you want to generate receipt."
+puts "Enter a list of products with their respective cost. Type `summary` if you want to generate a receipt."
 ORDER_PATTERN = /^(\d+) (.+) at (\d+\.\d{2})$/
 Orders = {}
 
