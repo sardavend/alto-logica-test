@@ -1,6 +1,6 @@
 class Order
   attr_accessor :order_lines, :total_taxes, :total_price
-  def initialize(order_lines:)
+  def initialize(order_lines:[])
     @order_lines = order_lines
     @total_price = 0
     @total_taxes = 0
@@ -8,14 +8,14 @@ class Order
   end
 
   def generate_receipt
+    puts "Receipt:"
     receipt = order_lines.map do |order_line|
-      "#{order_line.quantity} #{order_line.product.name} #{order_line.final_price}"
+      "#{order_line.quantity} #{order_line.product.name} #{sprintf("%.2f", order_line.final_price)}"
     end
-    receipt.push("Sales Taxes #{total_taxes}")
-    receipt.push("Total #{total_price}")
+    receipt.push("Sales Taxes #{sprintf("%.2f", total_taxes)}")
+    receipt.push("Total #{sprintf("%.2f", total_price)}")
 
     puts receipt
-    puts receipt.join('\n')
   end
 
   private

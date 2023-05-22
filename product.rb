@@ -6,16 +6,6 @@ class Product
     @price = price
   end
 
-  def apply_base_taxes?
-    true unless is_book? || is_food? || medical_product?
-  end
-
-  def apply_imported_taxes?
-    imported?
-  end
-
-  private
-
   def imported?
     name.include?('imported')
   end
