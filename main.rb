@@ -1,22 +1,12 @@
-require_relative 'lib/order_wrapper'
-require_relative 'lib/order'
+require_relative 'load_path'
+require 'order_items_wrapper'
+require 'order'
 
-puts "Enter a list of products with their respective cost. Type `summary` if you want to generate a receipt."
-ORDER_PATTERN = /^(\d+) (.+) at (\d+\.\d{2})$/
-Orders = {}
 
-order_lines = []
-
-while line = gets
-  match = ORDER_PATTERN.match(line.chomp)
-  if match
-    order_line = OrderWrapper.parse_order_line(match)
-    order_lines.push(order_line)
-  end
-
-  break if line.chomp === 'summary'
+if $stdin.stat.size.zero?
+  $stderr.puts('Send the Order items using the pipe | operator, Ex:  `cat input2.txt | ruby main.rb`')
+else
+  order_items = $stdin.map{ |line| OrderItemsWrapper.parse_order_item(line) }
+  order = Order.new(order_items:)
+  order.generate_receipt
 end
-
-order = Order.new(order_lines: order_lines)
-
-order.generate_receipt
