@@ -1,22 +1,22 @@
-require_relative '../order'
-require_relative '../order_line'
-require_relative '../product'
-require_relative '../tax'
 require 'test/unit'
+require_relative '../load_path'
+require'order'
+require 'order_item'
+require 'product'
 
 class TestOrder < Test::Unit::TestCase
   def setup
-    @product1 = Product.new(name: 'book', price: 12.49)
-    @product2 = Product.new(name: 'music CD', price: 14.99)
-    @product3 = Product.new(name: 'chocolate bar', price: 0.85)
+    @product1 = Product.new(name: 'book', price: 12.49, category: 'book', imported: false)
+    @product2 = Product.new(name: 'music CD', price: 14.99, category: 'other', imported: false)
+    @product3 = Product.new(name: 'chocolate bar', price: 0.85, category: 'food', imported: false)
 
-    @order_lines = [
-      OrderLine.new(product: @product1, quantity: 2, tax: Tax.new(product: @product1)),
-      OrderLine.new(product: @product2, quantity: 1, tax: Tax.new(product: @product2)),
-      OrderLine.new(product: @product3, quantity: 1, tax: Tax.new(product: @product3))
+    @order_items = [
+      OrderItem.new(product: @product1, quantity: 2),
+      OrderItem.new(product: @product2, quantity: 1),
+      OrderItem.new(product: @product3, quantity: 1)
     ]
 
-    @order = Order.new(order_lines: @order_lines)
+    @order = Order.new(order_items: @order_items)
   end
 
   def test_total_taxes
