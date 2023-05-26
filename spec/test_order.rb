@@ -3,6 +3,7 @@ require_relative '../load_path'
 require 'order'
 require 'order_item'
 require 'product'
+require 'bigdecimal'
 
 class TestOrder < Test::Unit::TestCase
   def setup
@@ -20,10 +21,10 @@ class TestOrder < Test::Unit::TestCase
   end
 
   def test_total_taxes
-    assert_equal 1.50, @order.total_taxes
+    assert_equal BigDecimal('1.50'), @order.total_taxes
   end
 
   def test_total_price
-    assert_equal 42.32, @order.total_price
+    assert_equal BigDecimal('42.32'), @order.total_price
   end
 end
