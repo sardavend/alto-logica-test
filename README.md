@@ -2,7 +2,7 @@
 
 Hi there, thanks for your feedback. I have refactored the code to apply some best practices that I think make sense in the context of this assignment. I have also added more tests and replaced the Tax class with the Taxable module, which acts as a role.
 
-Please take a look at the updated code and let me know if you have any further suggestions or questions
+Please take a look at the updated code, and the usage section and let me know if you have any further suggestions or questions
 
 # Sales Receipt Generator
 
