@@ -1,5 +1,5 @@
-require_relative 'order_wrapper'
-require_relative 'order'
+require_relative 'lib/order_wrapper'
+require_relative 'lib/order'
 
 puts "Enter a list of products with their respective cost. Type `summary` if you want to generate a receipt."
 ORDER_PATTERN = /^(\d+) (.+) at (\d+\.\d{2})$/
