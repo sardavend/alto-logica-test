@@ -11,7 +11,6 @@ class TestItemsWrapper < Test::Unit::TestCase
     @consumer_order_item = OrderItemsWrapper.parse_order_item(consumer_imported_input)
     @medical_order_item = OrderItemsWrapper.parse_order_item(medical_input)
     @food_order_item = OrderItemsWrapper.parse_order_item(imported_food_input)
-
   end
 
   def test_consumer_item_product_attrs

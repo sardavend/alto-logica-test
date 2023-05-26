@@ -24,7 +24,7 @@ module OrderItemsWrapper
       the correct format, The offending line has the follwing content `#{line}`
       Error: #{e}
     TEXT
-    $stderr.puts(message)
+    warn(message)
     exit(1)
   end
 

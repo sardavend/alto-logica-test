@@ -1,6 +1,6 @@
 require 'test/unit'
 require_relative '../load_path'
-require'order'
+require 'order'
 require 'order_item'
 require 'product'
 
